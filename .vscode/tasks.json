@@ -1,0 +1,24 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "tsc: compile current file",
+      "type": "shell",
+      "command": "npx",
+      "args": [
+        "tsc",
+        "${file}",
+        "--outDir",
+        "${workspaceFolder}/dist",
+        "--sourceMap",
+        "--target",
+        "es6",
+        "--module",
+        "es2015",
+        "--lib",
+        "es2015,dom"
+      ],
+      "problemMatcher": ["$tsc"]
+    }
+  ]
+}
