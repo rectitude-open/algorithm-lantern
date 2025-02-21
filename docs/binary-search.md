@@ -37,7 +37,6 @@ import TabItem from '@theme/TabItem';
 
 ### 应用方向
 
-- 性能优化：用 O(log n)替代 O(n)
 - 数据处理：快速查找或统计
 - Bug 排查：快速定位
 
