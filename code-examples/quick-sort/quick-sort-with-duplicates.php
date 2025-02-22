@@ -1,6 +1,8 @@
-class Solution {
-    function sortArray($nums) {
-        if(count($nums) <= 1) {
+class Solution
+{
+    public function sortArray($nums)
+    {
+        if (count($nums) <= 1) {
             return $nums;
         }
 
@@ -8,15 +10,15 @@ class Solution {
         $pivot = $nums[0];
 
         foreach ($nums as $num) {
-            if($num > $pivot) {
+            if ($num > $pivot) {
                 $high[] = $num;
-            } elseif($num < $pivot) {
+            } elseif ($num < $pivot) {
                 $low[] = $num;
             } else {
-                $equal[]= $num;
+                $equal[] = $num;
             }
         }
-        
+
         return [...$this->sortArray($low), ...$equal, ...$this->sortArray($high)];
     }
 }

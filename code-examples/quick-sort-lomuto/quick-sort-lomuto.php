@@ -1,21 +1,23 @@
-<?php
-// TODO: FORMAT DOCUMENT
-class Solution {
-    public function sortArray($nums) {
+class Solution
+{
+    public function sortArray($nums)
+    {
         $this->sortIterative($nums);
         return $nums;
     }
 
     private function sortIterative(&$nums)
     {
-        $stack = [[0, count($nums) -1]];
-        while(!empty($stack)){
+        $stack = [[0, count($nums) - 1]];
+        while (!empty($stack)) {
             [$lowMin, $highMax] = array_pop($stack);
 
-            if($lowMin >= $highMax) { continue; }
+            if ($lowMin >= $highMax) {
+                continue;
+            }
 
-            $pivotIndex = $this->partition($nums,$lowMin,$highMax);
-            
+            $pivotIndex = $this->partition($nums, $lowMin, $highMax);
+
             array_push($stack, [$pivotIndex + 1, $highMax]);
             array_push($stack, [$lowMin ,$pivotIndex - 1]);
         }
@@ -27,10 +29,10 @@ class Solution {
         [$nums[$randomIndex], $nums[$highMax]] = [$nums[$highMax],$nums[$randomIndex]];
 
         $pivot = $nums[$highMax];
-        $lowMax = $lowMin-1;
+        $lowMax = $lowMin - 1;
 
         for ($i = $lowMin; $i < $highMax; $i++) {
-            if($nums[$i] < $pivot) {
+            if ($nums[$i] < $pivot) {
                 $lowMax++;
                 [$nums[$i], $nums[$lowMax]] = [$nums[$lowMax],$nums[$i]];
             }
